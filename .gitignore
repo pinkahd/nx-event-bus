@@ -1,0 +1,12 @@
+node_modules
+*.swp
+*.swo
+.DS_Store
+.git-old
+*-tmp.*
+twistd.*
+.vagrant/*
+.nightly
+*.pyc
+
+dist

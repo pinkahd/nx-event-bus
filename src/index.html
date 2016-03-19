@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EventBus</title>
+</head>
+<body>
+
+<script type="text/javascript" src="js/nx-event-bus.js"></script>
+<script type="text/javascript">
+    var eventBus = new EventBus('test');
+
+    eventBus.registerOnce('test', function() {
+        console.log('Called', arguments);
+    });
+
+    eventBus.register('test', function() {
+        console.log('Called', arguments);
+    });
+
+    eventBus.emit('test', 'Hey from eventBus');
+
+    var eventBus2 = new EventBus('test');
+
+    eventBus2.registerOnce('test', function() {
+        console.log('Called', arguments);
+    });
+
+    eventBus2.register('test', function() {
+        console.log('Called', arguments);
+    });
+
+    eventBus2.emit('test', 'Hey from eventBus2');
+
+    var eventBus3 = new EventBus('test');
+
+    eventBus3.registerOnce('test', function() {
+        console.log('Called', arguments);
+    });
+
+    eventBus3.register('test', function() {
+        console.log('Called', this, arguments);
+    });
+
+    eventBus3.emit('test', 'Hey from eventBus3');
+</script>
+</body>
+</html>

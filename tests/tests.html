@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NX Event Bus - Tests</title>
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/qunit/qunit-1.22.0.css">
+</head>
+<body>
+
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+
+<script type="text/javascript" src="https://code.jquery.com/qunit/qunit-1.22.0.js"></script>
+<script type="text/javascript" src="../dist/js/nx-event-bus.js"></script>
+<script type="text/javascript">
+    QUnit.test('on emit off emit', function(assert) {
+        var bus = new EventBus();
+        var i = 0;
+        var f = function() {i++;};
+        bus.register('test', f);
+        bus.emit('test');
+        bus.deregister('test', f);
+        bus.emit('test');
+
+        assert.ok(i === 1, 'The function was called: ' + i + ' (Should equal 1)');
+    });
+
+    QUnit.test('on emit off emit with two buses', function(assert) {
+        var bus = new EventBus();
+        var bus2 = new EventBus();
+
+        var i = 0;
+        var f = function() {i++;};
+
+        bus2.emit('test');
+
+        bus.register('test', f);
+        bus.emit('test');
+        bus.deregister('test', f);
+
+        bus2.emit('test');
+        bus.emit('test');
+
+        assert.ok(i === 1, 'The function was called: ' + i + ' (Should equal 1)');
+    });
+
+    QUnit.test('Test two buses the event is contain in a single bus', function(assert) {
+        var bus = new EventBus();
+        var bus2 = new EventBus();
+
+        var i = 0;
+        var f = function() {i++;};
+
+
+        bus2.register('test', f);
+        bus.register('test', f);
+
+        bus.emit('test');
+
+        bus.deregister('test', f);
+
+        bus.emit('test');
+
+        assert.ok(i === 1, 'The function was called: ' + i + ' (Should equal 1)');
+    });
+</script>
+</body>
+</html>
