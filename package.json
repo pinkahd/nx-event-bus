@@ -1,8 +1,13 @@
 {
     "name": "nx-event-bus",
     "description": "Simple JavaScript Event Bus Implementation",
-    "version": "0.0.1",
-    "author": "Alexandru L. Pinca <alex@alexandru-pinca.me>",
+    "version": "0.0.2",
+    "author": {
+        "email": "alex@alexandru-pinca.me",
+        "name": "Alexandru L. Pinca "
+    },
+    "main": "index.js",
+    "license": "Apache",
     "repository": {
         "type": "git",
         "url": "https://github.com/pinkahd/nx-event-bus"

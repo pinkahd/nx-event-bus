@@ -3,7 +3,7 @@
 
     const map = new WeakMap();
     const self = key => map.get(key) || map.set(key, {}).get(key);
-    let _ = (typeof _ !== typeof undefined) ? _ : undefined;
+    var _ = (typeof _ !== typeof undefined) ? _ : undefined;
 
     /**
      * Helper function to check if the given param is a function
