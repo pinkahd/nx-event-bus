@@ -7,11 +7,24 @@
         "name": "Alexandru L. Pinca "
     },
     "main": "index.js",
-    "license": "Apache",
+    "license": "Apache-2.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/pinkahd/nx-event-bus"
     },
+    "bugs": {
+        "url": "https://github.com/pinkahd/nx-event-bus/issues"
+    },
+    "keywords": [
+        "Event",
+        "Bus",
+        "JavaScript",
+        "publish",
+        "subscribe",
+        "pattern",
+        "dispatch",
+        "listen"
+    ],
     "engines": {
         "node": ">=0.10.0"
     },

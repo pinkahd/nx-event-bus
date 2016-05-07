@@ -1,0 +1,27 @@
+{
+    "name": "nx-event-bus",
+    "description": "Simple JavaScript Event Bus Implementation",
+    "main": "index.js",
+    "authors": [
+        "Alexandru L. Pinca"
+    ],
+    "license": "Apache-2.0",
+    "keywords": [
+        "Event",
+        "Bus",
+        "JavaScript",
+        "publish",
+        "subscribe",
+        "pattern",
+        "dispatch",
+        "listen"
+    ],
+    "homepage": "https://github.com/pinkahd/nx-event-bus",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}
