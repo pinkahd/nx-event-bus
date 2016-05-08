@@ -4,6 +4,13 @@ A simple implementation of an event bus for JavaScript. It's main features is ta
 
 A 'dead event' is when there aren't any listener for the broadcasted event. If such event occurs the event will be saved until a listener will get created and it will be rebroadcasted;
 
+## Documentation ##
+
+**[NX Event Bus Documentation](https://github.com/pinkahd/nx-event-bus/blob/master/docs/documentation.md)** – _Github version_
+
+**[Web Formatted Version](https://alexandru-pinca.me/projects/nx-event-bus/docs/)** – _The same as above but web-formatted._
+
+
 ## Installation
 
 1. Clone the repository.
