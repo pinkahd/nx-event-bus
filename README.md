@@ -1,23 +1,29 @@
 # NX Event Bus
 
-A simple implementation of an event bus for JavaScript. It's main features is taking care of 'dead events'. 
+A simple implementation of an event bus for JavaScript. It's main features is taking care of 'dead events'.
 
 A 'dead event' is when there aren't any listener for the broadcasted event. If such event occurs the event will be saved until a listener will get created and it will be rebroadcasted;
 
-## Documentation ##
+## :memo: Documentation
 
 **[NX Event Bus Documentation](https://github.com/pinkahd/nx-event-bus/blob/master/docs/documentation.md)** – _Github version_
 
 **[Web Formatted Version](https://alexandru-pinca.me/projects/nx-event-bus/docs/)** – _The same as above but web-formatted._
 
 
-## Installation
+## :cloud: Installation
+
+```
+$ npm i nx-event-bux --save
+```
+
+## :wrench: Development
 
 1. Clone the repository.
-2. Run npm install in the project root
-3. Start gulp
+2. Run `npm i` in the project root
+3. Start coding
 
-## Contributing
+## :recycle: Contributing
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
@@ -25,9 +31,9 @@ A 'dead event' is when there aren't any listener for the broadcasted event. If s
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## License
+## :scroll: License
 
-Copyright 2016 Alexandru L. Pinca
+Copyright 2018 Alexandru L. Pinca
 
 Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE file distributed with this work for additional information regarding copyright ownership. The ASF licenses this file to you under the Apache License, Version 2.0 (the “License”); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
