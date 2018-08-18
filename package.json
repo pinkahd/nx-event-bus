@@ -32,7 +32,8 @@
   "scripts": {
     "test": "jest",
     "docs:html": "./node_modules/.bin/jsdoc ./lib/nx-event-bus.js -d ./docs/html",
-    "docs:md": "./node_modules/.bin/jsdoc2md ./lib/nx-event-bus.js > ./docs/documentation.md"
+    "docs:md": "./node_modules/.bin/jsdoc2md ./lib/nx-event-bus.js > ./docs/documentation.md",
+    "travis:integration": "npm run test"
   },
   "ignore": [
     "dist",

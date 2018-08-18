@@ -1,0 +1,34 @@
+sudo: false
+dist: trusty
+language: node_js
+
+cache:
+  directories:
+  - "node_modules"
+
+matrix:
+  include:
+  - os: linux
+    node_js: "8"
+    env: NO_WATCH_TESTS=1 JOB_PART=integration
+  - os: linux
+    node_js: "10"
+    env: NO_WATCH_TESTS=1 JOB_PART=integration
+  - os: osx
+    node_js: "8"
+    env: NO_WATCH_TESTS=1 JOB_PART=integration
+  - os: osx
+    node_js: "10"
+    env: NO_WATCH_TESTS=1 JOB_PART=integration
+  fast_finish: true
+
+before_install:
+  - "npm i -g yarn"
+
+install:
+  - "yarn install"
+
+script: npm run travis:$JOB_PART
+
+after_success:
+  - echo "Build Successful"
