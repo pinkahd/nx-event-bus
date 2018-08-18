@@ -1,7 +1,7 @@
 {
   "name": "nx-event-bus",
   "description": "Simple JavaScript Event Bus Implementation",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "author": {
     "email": "alex@alexandru-pinca.me",
     "name": "Alexandru L. Pinca"
