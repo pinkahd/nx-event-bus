@@ -1,6 +1,7 @@
 # NX Event Bus
 
 [![Build Status](https://travis-ci.org/pinkahd/nx-event-bus.svg?branch=master)](https://travis-ci.org/pinkahd/nx-event-bus)
+[![npm version](https://badge.fury.io/js/nx-event-bus.svg)](https://badge.fury.io/js/nx-event-bus)
 
 A simple implementation of an event bus for JavaScript. It's main features is taking care of 'dead events'.
 
