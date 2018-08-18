@@ -14,6 +14,17 @@ track of the listeners informations in one place</p>
 <dd></dd>
 </dl>
 
+## Functions
+
+<dl>
+<dt><a href="#isFunction">isFunction(fn)</a> ⇒ <code>boolean</code></dt>
+<dd><p>Helper function to check if the given param is a function</p>
+</dd>
+<dt><a href="#toString">toString(fn)</a> ⇒ <code>string</code></dt>
+<dd><p>Helper function used to compare two functions</p>
+</dd>
+</dl>
+
 <a name="BusEvent"></a>
 
 ## BusEvent
@@ -42,28 +53,28 @@ The bus event constructor
 <a name="BusEvent+data"></a>
 
 ### busEvent.data ⇒ <code>\*</code>
-**Kind**: instance property of <code>[BusEvent](#BusEvent)</code>  
+**Kind**: instance property of [<code>BusEvent</code>](#BusEvent)  
 **Returns**: <code>\*</code> - Returns the event data  
 <a name="BusEvent+channel"></a>
 
 ### busEvent.channel ⇒ <code>string</code>
-**Kind**: instance property of <code>[BusEvent](#BusEvent)</code>  
+**Kind**: instance property of [<code>BusEvent</code>](#BusEvent)  
 **Returns**: <code>string</code> - Returns the event channel  
 <a name="BusEvent+timeStamp"></a>
 
 ### busEvent.timeStamp ⇒ <code>number</code>
-**Kind**: instance property of <code>[BusEvent](#BusEvent)</code>  
+**Kind**: instance property of [<code>BusEvent</code>](#BusEvent)  
 **Returns**: <code>number</code> - Returns the event time stamp  
 <a name="BusEvent+stopPropagation"></a>
 
 ### busEvent.stopPropagation()
 Stop the event propagation
 
-**Kind**: instance method of <code>[BusEvent](#BusEvent)</code>  
+**Kind**: instance method of [<code>BusEvent</code>](#BusEvent)  
 <a name="BusEvent+isEnable"></a>
 
 ### busEvent.isEnable() ⇒ <code>boolean</code>
-**Kind**: instance method of <code>[BusEvent](#BusEvent)</code>  
+**Kind**: instance method of [<code>BusEvent</code>](#BusEvent)  
 **Returns**: <code>boolean</code> - returns true if the event is enabled  
 <a name="InvalidParameterGiven"></a>
 
@@ -89,39 +100,69 @@ track of the listeners informations in one place
 **Kind**: global class  
 
 * [EventListener](#EventListener)
-    * [new EventListener(options)](#new_EventListener_new)
+    * [new EventListener(channel, fn, scope, once)](#new_EventListener_new)
     * [.channel](#EventListener+channel) ⇒ <code>string</code>
     * [.fn](#EventListener+fn) ⇒ <code>function</code>
     * [.scope](#EventListener+scope) ⇒ <code>function</code>
+    * [.once](#EventListener+once) ⇒ <code>boolean</code>
+    * [.emit(event)](#EventListener+emit)
+    * [.is(listener)](#EventListener+is) ⇒ <code>boolean</code>
 
 <a name="new_EventListener_new"></a>
 
-### new EventListener(options)
+### new EventListener(channel, fn, scope, once)
 Event Listener constructor
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | <code>object</code> | Options object with params described below |
-| options.channel | <code>string</code> | The channel on witch the events will be broadcast |
-| options.scope | <code>function</code> | The listener scope |
-| options.fn | <code>function</code> | The listener callback function |
+| channel | <code>string</code> | The channel on witch the events will be broadcast |
+| fn | <code>function</code> | The listener callback function |
+| scope | <code>function</code> | The listener scope |
+| once | <code>boolean</code> | If it's a one time listener |
 
 <a name="EventListener+channel"></a>
 
 ### eventListener.channel ⇒ <code>string</code>
-**Kind**: instance property of <code>[EventListener](#EventListener)</code>  
+**Kind**: instance property of [<code>EventListener</code>](#EventListener)  
 **Returns**: <code>string</code> - Return the listener channel  
 <a name="EventListener+fn"></a>
 
 ### eventListener.fn ⇒ <code>function</code>
-**Kind**: instance property of <code>[EventListener](#EventListener)</code>  
+**Kind**: instance property of [<code>EventListener</code>](#EventListener)  
 **Returns**: <code>function</code> - Return the callback function  
 <a name="EventListener+scope"></a>
 
 ### eventListener.scope ⇒ <code>function</code>
-**Kind**: instance property of <code>[EventListener](#EventListener)</code>  
+**Kind**: instance property of [<code>EventListener</code>](#EventListener)  
 **Returns**: <code>function</code> - Return the callback function scope  
+<a name="EventListener+once"></a>
+
+### eventListener.once ⇒ <code>boolean</code>
+**Kind**: instance property of [<code>EventListener</code>](#EventListener)  
+**Returns**: <code>boolean</code> - Returns true if it's a one time listener  
+<a name="EventListener+emit"></a>
+
+### eventListener.emit(event)
+Emit the event to the listener function
+
+**Kind**: instance method of [<code>EventListener</code>](#EventListener)  
+
+| Param | Type |
+| --- | --- |
+| event | [<code>BusEvent</code>](#BusEvent) | 
+
+<a name="EventListener+is"></a>
+
+### eventListener.is(listener) ⇒ <code>boolean</code>
+Check if the given callback is the same as the listener ones
+
+**Kind**: instance method of [<code>EventListener</code>](#EventListener)  
+
+| Param | Type |
+| --- | --- |
+| listener | <code>function</code> | 
+
 <a name="EventBus"></a>
 
 ## EventBus
@@ -131,12 +172,12 @@ Event Listener constructor
     * [new EventBus(name)](#new_EventBus_new)
     * _instance_
         * [.name](#EventBus+name) ⇒ <code>string</code>
-        * [.register(channel, listener, scope)](#EventBus+register) ⇒ <code>function</code>
-        * [.registerOnce(channel, listener, scope)](#EventBus+registerOnce) ⇒ <code>function</code>
+        * [.register(channel, listener, [scope&#x3D;], [once])](#EventBus+register) ⇒ <code>function</code>
+        * [.registerOnce(channel, listener, [scope&#x3D;])](#EventBus+registerOnce) ⇒ <code>function</code>
         * [.deregister(channel, listener)](#EventBus+deregister)
-        * [.emit(channel, data)](#EventBus+emit) ⇒ <code>[EventBus](#EventBus)</code>
-        * [.emitEvent(busEvent)](#EventBus+emitEvent)
-        * [.emitAsync(channel, data, delay)](#EventBus+emitAsync) ⇒ <code>[EventBus](#EventBus)</code>
+        * [.emit(channel, data)](#EventBus+emit) ⇒ [<code>EventBus</code>](#EventBus)
+        * [.emitEvent(event)](#EventBus+emitEvent)
+        * [.emitAsync(channel, data, [delay&#x3D;])](#EventBus+emitAsync) ⇒ [<code>EventBus</code>](#EventBus)
         * [.resendDeadEvents()](#EventBus+resendDeadEvents)
         * [.destroy()](#EventBus+destroy)
     * _static_
@@ -159,50 +200,51 @@ The event bus constructor
 <a name="EventBus+name"></a>
 
 ### eventBus.name ⇒ <code>string</code>
-**Kind**: instance property of <code>[EventBus](#EventBus)</code>  
+**Kind**: instance property of [<code>EventBus</code>](#EventBus)  
 **Returns**: <code>string</code> - Return the event bus name  
 <a name="EventBus+register"></a>
 
-### eventBus.register(channel, listener, scope) ⇒ <code>function</code>
+### eventBus.register(channel, listener, [scope&#x3D;], [once]) ⇒ <code>function</code>
 Method used to register a callback function on a specific channel
 
-**Kind**: instance method of <code>[EventBus](#EventBus)</code>  
+**Kind**: instance method of [<code>EventBus</code>](#EventBus)  
 **Returns**: <code>function</code> - Returns a deregister function  
 **Throws**:
 
-- <code>[InvalidParameterGiven](#InvalidParameterGiven)</code> If [this condition is met]
+- [<code>InvalidParameterGiven</code>](#InvalidParameterGiven) If [this condition is met]
 
 
-| Param | Type | Description |
-| --- | --- | --- |
-| channel | <code>string</code> | The given channel |
-| listener | <code>function</code> | The callback function |
-| scope | <code>function</code> | The callback function scope |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| channel | <code>string</code> |  | The given channel |
+| listener | <code>function</code> |  | The callback function |
+| [scope=] | <code>function</code> |  | The callback function scope |
+| [once] | <code>boolean</code> | <code>false</code> | If it should deregister after first event |
 
 <a name="EventBus+registerOnce"></a>
 
-### eventBus.registerOnce(channel, listener, scope) ⇒ <code>function</code>
+### eventBus.registerOnce(channel, listener, [scope&#x3D;]) ⇒ <code>function</code>
 Method used to register a callback function on a specific channel
 
-**Kind**: instance method of <code>[EventBus](#EventBus)</code>  
+**Kind**: instance method of [<code>EventBus</code>](#EventBus)  
 **Returns**: <code>function</code> - Returns a deregister function  
 **Throws**:
 
-- <code>[InvalidParameterGiven](#InvalidParameterGiven)</code> If [this condition is met]
+- [<code>InvalidParameterGiven</code>](#InvalidParameterGiven) If [this condition is met]
 
 
 | Param | Type | Description |
 | --- | --- | --- |
 | channel | <code>string</code> | The given channel |
 | listener | <code>function</code> | The callback function |
-| scope | <code>function</code> | The callback function scope |
+| [scope=] | <code>function</code> | The callback function scope |
 
 <a name="EventBus+deregister"></a>
 
 ### eventBus.deregister(channel, listener)
 Deregister a function from the event bus
 
-**Kind**: instance method of <code>[EventBus](#EventBus)</code>  
+**Kind**: instance method of [<code>EventBus</code>](#EventBus)  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -211,11 +253,11 @@ Deregister a function from the event bus
 
 <a name="EventBus+emit"></a>
 
-### eventBus.emit(channel, data) ⇒ <code>[EventBus](#EventBus)</code>
+### eventBus.emit(channel, data) ⇒ [<code>EventBus</code>](#EventBus)
 Emit an event to a channel
 
-**Kind**: instance method of <code>[EventBus](#EventBus)</code>  
-**Returns**: <code>[EventBus](#EventBus)</code> - Returns the current instance of the EventBus  
+**Kind**: instance method of [<code>EventBus</code>](#EventBus)  
+**Returns**: [<code>EventBus</code>](#EventBus) - Returns the current instance of the EventBus  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -224,72 +266,95 @@ Emit an event to a channel
 
 <a name="EventBus+emitEvent"></a>
 
-### eventBus.emitEvent(busEvent)
+### eventBus.emitEvent(event)
 Emit a bus event
 
-**Kind**: instance method of <code>[EventBus](#EventBus)</code>  
+**Kind**: instance method of [<code>EventBus</code>](#EventBus)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| busEvent | <code>[BusEvent](#BusEvent)</code> | [description] |
+| event | [<code>BusEvent</code>](#BusEvent) | [description] |
 
 <a name="EventBus+emitAsync"></a>
 
-### eventBus.emitAsync(channel, data, delay) ⇒ <code>[EventBus](#EventBus)</code>
+### eventBus.emitAsync(channel, data, [delay&#x3D;]) ⇒ [<code>EventBus</code>](#EventBus)
 Method to emit an event async
 
-**Kind**: instance method of <code>[EventBus](#EventBus)</code>  
-**Returns**: <code>[EventBus](#EventBus)</code> - Returns the current instance of the EventBus  
+**Kind**: instance method of [<code>EventBus</code>](#EventBus)  
+**Returns**: [<code>EventBus</code>](#EventBus) - Returns the current instance of the EventBus  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | channel | <code>string</code> | The event channel |
 | data | <code>\*</code> | The event data |
-| delay | <code>integer</code> | The delay until the event will be send |
+| [delay=] | <code>number</code> | The delay until the event will be send |
 
 <a name="EventBus+resendDeadEvents"></a>
 
 ### eventBus.resendDeadEvents()
-Start resending the 'dead' events if any
+Start resending 'dead' events
 
-**Kind**: instance method of <code>[EventBus](#EventBus)</code>  
+**Kind**: instance method of [<code>EventBus</code>](#EventBus)  
 <a name="EventBus+destroy"></a>
 
 ### eventBus.destroy()
 Destroy the event bus
 
-**Kind**: instance method of <code>[EventBus](#EventBus)</code>  
+**Kind**: instance method of [<code>EventBus</code>](#EventBus)  
 <a name="EventBus.Errors"></a>
 
 ### EventBus.Errors
 Return all the errors type
 
-**Kind**: static property of <code>[EventBus](#EventBus)</code>  
+**Kind**: static property of [<code>EventBus</code>](#EventBus)  
 <a name="EventBus.BusEvent"></a>
 
 ### EventBus.BusEvent
-Return the BusEvent
+Return the BusEvent class
 
-**Kind**: static property of <code>[EventBus](#EventBus)</code>  
-**Note**: Used for checking the event type  
+**Kind**: static property of [<code>EventBus</code>](#EventBus)  
 <a name="EventBus.register"></a>
 
 ### EventBus.register()
 Method used to register a callback function on a specific channel
 
-**Kind**: static method of <code>[EventBus](#EventBus)</code>  
+**Kind**: static method of [<code>EventBus</code>](#EventBus)  
 **See**: EventBus.register  
 <a name="EventBus.deregister"></a>
 
 ### EventBus.deregister()
 Deregister a function from the event bus
 
-**Kind**: static method of <code>[EventBus](#EventBus)</code>  
+**Kind**: static method of [<code>EventBus</code>](#EventBus)  
 **See**: EventBus.deregister  
 <a name="EventBus.emit"></a>
 
 ### EventBus.emit()
 Emit an event to a channel
 
-**Kind**: static method of <code>[EventBus](#EventBus)</code>  
+**Kind**: static method of [<code>EventBus</code>](#EventBus)  
 **See**: EventBus.emit  
+<a name="isFunction"></a>
+
+## isFunction(fn) ⇒ <code>boolean</code>
+Helper function to check if the given param is a function
+
+**Kind**: global function  
+**Returns**: <code>boolean</code> - True if the given param is a function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| fn | <code>function</code> | The given object |
+
+<a name="toString"></a>
+
+## toString(fn) ⇒ <code>string</code>
+Helper function used to compare two functions
+
+**Kind**: global function  
+**Returns**: <code>string</code> - Returns the function as a string  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| fn | <code>function</code> | The given function |
+

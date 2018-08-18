@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2>EventListener</h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>EventListener<span class="signature">(channel, fn, scope, once)</span><span class="type-signature"></span></h2>
         
             <div class="class-description">Create an event listener object used to keep
 track of the listeners informations in one place</div>
@@ -45,7 +45,9 @@ track of the listeners informations in one place</div>
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="EventListener"><span class="type-signature"></span>new EventListener<span class="signature">(options)</span><span class="type-signature"></span></h4>
+    
+    <h4 class="name" id="EventListener"><span class="type-signature"></span>new EventListener<span class="signature">(channel, fn, scope, once)</span><span class="type-signature"></span></h4>
+    
 
     
 
@@ -65,48 +67,6 @@ track of the listeners informations in one place</div>
 
     <h5>Parameters:</h5>
     
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Options object with params described below
-                <h6>Properties</h6>
-                
 
 <table class="params">
     <thead>
@@ -153,6 +113,29 @@ track of the listeners informations in one place</div>
 
         <tr>
             
+                <td class="name"><code>fn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The listener callback function</td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>scope</code></td>
             
 
@@ -176,13 +159,13 @@ track of the listeners informations in one place</div>
 
         <tr>
             
-                <td class="name"><code>fn</code></td>
+                <td class="name"><code>once</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -192,14 +175,7 @@ track of the listeners informations in one place</div>
 
             
 
-            <td class="description last">The listener callback function</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last">If it's a one time listener</td>
         </tr>
 
     
@@ -240,7 +216,7 @@ track of the listeners informations in one place</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nx-event-bus.js.html">nx-event-bus.js</a>, <a href="nx-event-bus.js.html#line108">line 108</a>
+        <a href="nx-event-bus.js.html">nx-event-bus.js</a>, <a href="nx-event-bus.js.html#line89">line 89</a>
     </li></ul></dd>
     
 
@@ -266,6 +242,8 @@ track of the listeners informations in one place</div>
 
 
 
+
+
     
     </div>
 
@@ -275,7 +253,9 @@ track of the listeners informations in one place</div>
 
     
 
-     
+    
+
+    
 
     
 
@@ -324,7 +304,7 @@ track of the listeners informations in one place</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nx-event-bus.js.html">nx-event-bus.js</a>, <a href="nx-event-bus.js.html#line127">line 127</a>
+        <a href="nx-event-bus.js.html">nx-event-bus.js</a>, <a href="nx-event-bus.js.html#line109">line 109</a>
     </li></ul></dd>
     
 
@@ -382,7 +362,65 @@ track of the listeners informations in one place</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nx-event-bus.js.html">nx-event-bus.js</a>, <a href="nx-event-bus.js.html#line134">line 134</a>
+        <a href="nx-event-bus.js.html">nx-event-bus.js</a>, <a href="nx-event-bus.js.html#line114">line 114</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="once"><span class="type-signature"></span>once<span class="type-signature"></span></h4>
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="nx-event-bus.js.html">nx-event-bus.js</a>, <a href="nx-event-bus.js.html#line124">line 124</a>
     </li></ul></dd>
     
 
@@ -440,7 +478,7 @@ track of the listeners informations in one place</div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="nx-event-bus.js.html">nx-event-bus.js</a>, <a href="nx-event-bus.js.html#line141">line 141</a>
+        <a href="nx-event-bus.js.html">nx-event-bus.js</a>, <a href="nx-event-bus.js.html#line119">line 119</a>
     </li></ul></dd>
     
 
@@ -460,6 +498,298 @@ track of the listeners informations in one place</div>
     
 
     
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="emit"><span class="type-signature"></span>emit<span class="signature">(event)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Emit the event to the listener function
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="BusEvent.html">BusEvent</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="nx-event-bus.js.html">nx-event-bus.js</a>, <a href="nx-event-bus.js.html#line131">line 131</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="is"><span class="type-signature"></span>is<span class="signature">(listener)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Check if the given callback is the same as the listener ones
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>listener</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="nx-event-bus.js.html">nx-event-bus.js</a>, <a href="nx-event-bus.js.html#line142">line 142</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
 
     
 
@@ -474,13 +804,13 @@ track of the listeners informations in one place</div>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BusEvent.html">BusEvent</a></li><li><a href="EventBus.html">EventBus</a></li><li><a href="EventListener.html">EventListener</a></li><li><a href="InvalidParameterGiven.html">InvalidParameterGiven</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BusEvent.html">BusEvent</a></li><li><a href="EventBus.html">EventBus</a></li><li><a href="EventListener.html">EventListener</a></li><li><a href="InvalidParameterGiven.html">InvalidParameterGiven</a></li></ul><h3>Global</h3><ul><li><a href="global.html#isFunction">isFunction</a></li><li><a href="global.html#toString">toString</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun May 08 2016 14:25:27 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Aug 18 2018 21:30:07 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>
