@@ -3,8 +3,7 @@ dist: trusty
 language: node_js
 
 cache:
-  directories:
-  - "node_modules"
+  yarn: true
 
 matrix:
   include:
@@ -22,13 +21,7 @@ matrix:
     env: NO_WATCH_TESTS=1 JOB_PART=integration
   fast_finish: true
 
-before_install:
-  - "npm i -g yarn"
-
-install:
-  - "yarn install"
-
-script: npm run travis:$JOB_PART
+script: yarn run travis:$JOB_PART
 
 after_success:
   - echo "Build Successful"
