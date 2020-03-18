@@ -33,6 +33,7 @@
     "test": "jest --reporters=default",
     "docs:html": "./node_modules/.bin/jsdoc ./lib/nx-event-bus.js -d ./docs/html",
     "docs:md": "./node_modules/.bin/jsdoc2md ./lib/nx-event-bus.js > ./docs/documentation.md",
+    "docs": "yarn run docs:html && yarn run docs:md",
     "travis:integration": "yarn run test"
   },
   "ignore": [
