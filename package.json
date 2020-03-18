@@ -30,10 +30,10 @@
   },
   "sideEffects": false,
   "scripts": {
-    "test": "jest",
+    "test": "jest --reporters=default",
     "docs:html": "./node_modules/.bin/jsdoc ./lib/nx-event-bus.js -d ./docs/html",
     "docs:md": "./node_modules/.bin/jsdoc2md ./lib/nx-event-bus.js > ./docs/documentation.md",
-    "travis:integration": "npm run test"
+    "travis:integration": "yarn run test"
   },
   "ignore": [
     "dist",
@@ -41,12 +41,10 @@
     "tests"
   ],
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-jest": "^23.4.2",
-    "babel-preset-env": "^1.7.0",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.4.3",
     "jest": "^25.1.0",
     "jsdoc": "^3.5.5",
-    "jsdoc-to-markdown": "^5.0.0",
-    "regenerator-runtime": "^0.13.2"
+    "jsdoc-to-markdown": "^5.0.0"
   }
 }
